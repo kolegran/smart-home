@@ -14,7 +14,10 @@ public class CityService {
 
     @Transactional(readOnly = true)
     public List<CityDto> getAll() {
-        return cityRepository.findAll().stream().map(CityDto::new).collect(Collectors.toList());
+        return cityRepository.findAll()
+                .stream()
+                .map(CityDto::new)
+                .collect(Collectors.toList());
     }
 
     @Transactional

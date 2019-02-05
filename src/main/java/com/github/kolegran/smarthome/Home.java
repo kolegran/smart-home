@@ -1,5 +1,7 @@
 package com.github.kolegran.smarthome;
 
+import com.github.kolegran.smarthome.country.city.Address.Address;
+
 import java.util.HashSet;
 import java.util.Set;
 
