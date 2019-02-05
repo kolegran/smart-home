@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.country.city.address;
+package com.github.kolegran.smarthome.address;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

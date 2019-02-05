@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.country.city.address;
+package com.github.kolegran.smarthome.address;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

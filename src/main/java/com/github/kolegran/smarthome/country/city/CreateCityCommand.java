@@ -10,7 +10,4 @@ public class CreateCityCommand {
     @NotNull
     @Length(min = 2, max = 100)
     private String name;
-
-    @NotNull
-    private Long countryId;
 }

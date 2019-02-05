@@ -1,6 +1,5 @@
-package com.github.kolegran.smarthome.country.city.address;
+package com.github.kolegran.smarthome.address;
 
-import com.github.kolegran.smarthome.country.city.City;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -11,10 +10,11 @@ public class CreateAddressCommand {
     @NotNull
     @Length(min = 2, max = 50)
     private String line1;
+
     @NotNull
     @Length(min = 2, max = 50)
     private String line2;
+
     @NotNull
-    @Length(min = 2, max = 100)
-    private City city;
+    private Long cityId;
 }

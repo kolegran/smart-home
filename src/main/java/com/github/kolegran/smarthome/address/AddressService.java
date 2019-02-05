@@ -1,5 +1,6 @@
-package com.github.kolegran.smarthome.country.city.address;
+package com.github.kolegran.smarthome.address;
 
+import com.github.kolegran.smarthome.country.city.CityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AddressService {
     private final AddressRepository addressRepository;
+    private final CityRepository cityRepository;
 
     @Transactional(readOnly = true)
     public List<AddressDto> getAll() {
@@ -25,7 +27,7 @@ public class AddressService {
         Address address = new Address();
         address.setLine1(command.getLine1());
         address.setLine2(command.getLine2());
-        address.setCity(command.getCity());
+        address.setCity(cityRepository.getOne(command.getCityId()));
         return new AddressDto(addressRepository.save(address));
     }
 }

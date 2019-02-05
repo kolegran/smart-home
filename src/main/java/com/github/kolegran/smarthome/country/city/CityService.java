@@ -23,10 +23,19 @@ public class CityService {
     }
 
     @Transactional
-    public CityDto create(CreateCityCommand command) {
+    public CityDto create(CreateCityCommand command, Long countryId) {
         City city = new City();
         city.setName(command.getName());
-        city.setCountry(countryRepository.getOne(command.getCountryId()));
+        city.setCountry(countryRepository.getOne(countryId));
         return new CityDto(cityRepository.save(city));
+    }
+
+    @Transactional(readOnly = true)
+    public List<CitySimpleDto> getAllByCountryId(long countryId) {
+        return cityRepository.findAll()
+                .stream()
+                .filter(c -> c.getCountry().getId().equals(countryId))
+                .map(CitySimpleDto::new)
+                .collect(Collectors.toList());
     }
 }

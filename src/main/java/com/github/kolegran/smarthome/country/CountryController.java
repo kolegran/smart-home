@@ -2,10 +2,7 @@ package com.github.kolegran.smarthome.country;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,8 +13,13 @@ public class CountryController {
     private final CountryService countryService;
 
     @GetMapping("/api/countries")
-    public ResponseEntity<List<CountryDto>> getAllCountries() {
+    public ResponseEntity<List<CountrySimpleDto>> getAllCountries() {
         return ResponseEntity.ok(countryService.getAll());
+    }
+
+    @GetMapping("/api/countries/{countryId}")
+    public ResponseEntity<CountryDto> getCountryById(@PathVariable Long countryId) {
+        return ResponseEntity.ok(countryService.getById(countryId));
     }
 
     @PostMapping("/api/countries")
