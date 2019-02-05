@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.country.city.Address;
+package com.github.kolegran.smarthome.country.city.address;
 
 import com.github.kolegran.smarthome.country.city.City;
 import lombok.Data;

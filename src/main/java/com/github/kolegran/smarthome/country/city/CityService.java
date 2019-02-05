@@ -1,5 +1,6 @@
 package com.github.kolegran.smarthome.country.city;
 
+import com.github.kolegran.smarthome.country.CountryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CityService {
     private final CityRepository cityRepository;
+    private final CountryRepository countryRepository;
 
     @Transactional(readOnly = true)
     public List<CityDto> getAll() {
@@ -24,7 +26,7 @@ public class CityService {
     public CityDto create(CreateCityCommand command) {
         City city = new City();
         city.setName(command.getName());
-        city.setCountry(command.getCountry());
+        city.setCountry(countryRepository.getOne(command.getCountryId()));
         return new CityDto(cityRepository.save(city));
     }
 }

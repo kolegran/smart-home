@@ -1,17 +1,14 @@
 package com.github.kolegran.smarthome.country.city;
 
-import com.github.kolegran.smarthome.country.Country;
+import com.github.kolegran.smarthome.country.CountrySimpleDto;
 import lombok.Getter;
 
 @Getter
-public class CityDto {
-    private final Long id;
-    private final String name;
-    private final Country country;
+public class CityDto extends CitySimpleDto {
+    private final CountrySimpleDto country;
 
     public CityDto(City city) {
-        id = city.getId();
-        name = city.getName();
-        country = city.getCountry();
+        super(city);
+        country = new CountrySimpleDto(city.getCountry());
     }
 }

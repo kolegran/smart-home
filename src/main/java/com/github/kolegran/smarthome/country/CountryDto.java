@@ -1,14 +1,19 @@
 package com.github.kolegran.smarthome.country;
 
+import com.github.kolegran.smarthome.country.city.CitySimpleDto;
 import lombok.Getter;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Getter
-public class CountryDto {
-    private final Long id;
-    private final String name;
+public class CountryDto extends CountrySimpleDto {
+    private final Set<CitySimpleDto> cities;
 
     public CountryDto(Country country) {
-        id = country.getId();
-        name = country.getName();
+        super(country);
+        cities = country.getCities().stream()
+                .map(CitySimpleDto::new)
+                .collect(Collectors.toSet());
     }
 }
