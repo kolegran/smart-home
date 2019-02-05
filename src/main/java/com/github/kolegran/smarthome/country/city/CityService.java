@@ -24,6 +24,7 @@ public class CityService {
     public CityDto create(CreateCityCommand command) {
         City city = new City();
         city.setName(command.getName());
+        city.setCountry(command.getCountry());
         return new CityDto(cityRepository.save(city));
     }
 }
