@@ -1,6 +1,6 @@
-package com.github.kolegran.smarthome.country;
+package com.github.kolegran.smarthome.country.city;
 
-import com.github.kolegran.smarthome.country.city.City;
+import com.github.kolegran.smarthome.country.Country;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,19 +8,17 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @ToString
-public class Country {
+public class City {
     @Id
     @GeneratedValue
     private Long id;
 
+    // ManyToOne
+    //private Country country;
     private String name;
-    // OneToMany
-    //private Set<City> cities = new HashSet<>();
 }
