@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Getter
@@ -20,5 +21,6 @@ public class Address {
 
     private String line1;
     private String line2;
-    //private City city;
+    @ManyToOne
+    private City city;
 }

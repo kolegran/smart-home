@@ -25,7 +25,7 @@ public class AddressService {
         Address address = new Address();
         address.setLine1(command.getLine1());
         address.setLine2(command.getLine2());
-        //address.setCity(command.getCity());
+        address.setCity(command.getCity());
         return new AddressDto(addressRepository.save(address));
     }
 }

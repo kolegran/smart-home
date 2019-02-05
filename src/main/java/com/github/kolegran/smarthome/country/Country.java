@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class Country {
     private Long id;
 
     private String name;
-    // OneToMany
-    //private Set<City> cities = new HashSet<>();
+
+    @OneToMany(mappedBy = "country")
+    private Set<City> cities = new HashSet<>();
 }

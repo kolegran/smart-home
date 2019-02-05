@@ -8,12 +8,12 @@ public class AddressDto {
     private final Long id;
     private final String line1;
     private final String line2;
-    //private final City city;
+    private final City city;
 
     public AddressDto(Address address) {
         id = address.getId();
         line1 = address.getLine1();
         line2 = address.getLine2();
-        //city = address.getCity();
+        city = address.getCity();
     }
 }

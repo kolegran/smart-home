@@ -14,7 +14,7 @@ public class CreateAddressCommand {
     @NotNull
     @Length(min = 2, max = 50)
     private String line2;
-    //@NotNull
-    //@Length(min = 2, max = 100)
-    //private City city;
+    @NotNull
+    @Length(min = 2, max = 100)
+    private City city;
 }
