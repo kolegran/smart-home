@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome;
+package com.github.kolegran.smarthome.user;
 
 import lombok.Getter;
 import lombok.Setter;

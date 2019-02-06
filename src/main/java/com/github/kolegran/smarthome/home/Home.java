@@ -1,5 +1,6 @@
 package com.github.kolegran.smarthome.home;
 
+import com.github.kolegran.smarthome.address.Address;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,11 +17,10 @@ public class Home {
     private Long id;
 
     //private Set<Room> rooms = new HashSet<>();
-
-    //@ManyToOne
     //private User owner;
     //private Set<Device> devices = new HashSet<>();
     //private Set<User> tenants = new HashSet<>();
 
-    //private address address;
+    @ManyToOne
+    private Address address;
 }

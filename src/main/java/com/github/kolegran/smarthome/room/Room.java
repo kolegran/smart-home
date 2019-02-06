@@ -1,4 +1,6 @@
-package com.github.kolegran.smarthome;
+package com.github.kolegran.smarthome.room;
+
+import com.github.kolegran.smarthome.device.Device;
 
 import java.util.HashSet;
 import java.util.Set;

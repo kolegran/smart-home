@@ -1,14 +1,14 @@
 package com.github.kolegran.smarthome.address;
 
 import com.github.kolegran.smarthome.country.city.City;
+import com.github.kolegran.smarthome.home.Home;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,4 +23,7 @@ public class Address {
     private String line2;
     @ManyToOne
     private City city;
+
+    @OneToMany(mappedBy = "address")
+    private Set<Home> homes = new HashSet<>();
 }
