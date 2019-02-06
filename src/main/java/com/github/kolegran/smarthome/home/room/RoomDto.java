@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.room;
+package com.github.kolegran.smarthome.home.room;
 
 import com.github.kolegran.smarthome.home.HomeSimpleDto;
 

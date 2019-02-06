@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.room;
+package com.github.kolegran.smarthome.home.room;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,3 +23,8 @@ public class RoomController {
         return ResponseEntity.ok(roomService.create(command, homeId));
     }
 }
+//GET /rooms
+//GET /rooms/{roomId}
+//POST /rooms
+//PUT /rooms/{roomId}
+//DELETE /rooms/{roomId}

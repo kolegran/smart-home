@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.room;
+package com.github.kolegran.smarthome.home.room;
 
 import com.github.kolegran.smarthome.device.Device;
 import com.github.kolegran.smarthome.home.Home;
@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,5 +25,6 @@ public class Room {
     @ManyToOne
     private Home home;
 
-    //private Set<Device> devices = new HashSet<>();
+    @OneToMany(mappedBy = "room")
+    private Set<Device> devices = new HashSet<>();
 }

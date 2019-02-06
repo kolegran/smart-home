@@ -1,6 +1,7 @@
 package com.github.kolegran.smarthome.user;
 
 import com.github.kolegran.smarthome.home.Home;
+import com.github.kolegran.smarthome.home.member.HomeMember;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,5 +23,5 @@ public class User {
     private Long id;
 
     @OneToMany(mappedBy = "user")
-    private Set<Home> homes = new HashSet<>();
+    private Set<HomeMember> homeMembers = new HashSet<>();
 }

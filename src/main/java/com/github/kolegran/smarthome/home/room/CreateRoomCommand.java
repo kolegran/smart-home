@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.room;
+package com.github.kolegran.smarthome.home.room;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -12,5 +12,5 @@ public class CreateRoomCommand {
     private String name;
 
     @NotNull
-    private int floor;
+    private Integer floor;
 }

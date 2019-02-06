@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.room;
+package com.github.kolegran.smarthome.home.room;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,9 @@
 package com.github.kolegran.smarthome.home;
 
 import com.github.kolegran.smarthome.address.Address;
-import com.github.kolegran.smarthome.room.Room;
+import com.github.kolegran.smarthome.device.Device;
+import com.github.kolegran.smarthome.home.member.HomeMember;
+import com.github.kolegran.smarthome.home.room.Room;
 import com.github.kolegran.smarthome.user.User;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,12 +25,12 @@ public class Home {
     @OneToMany(mappedBy = "home")
     private Set<Room> rooms = new HashSet<>();
 
-    @ManyToOne
-    private User owner;
-
-    //private Set<User> tenants = new HashSet<>();
-    //private Set<Device> devices = new HashSet<>();
+    @OneToMany(mappedBy = "home")
+    private Set<Device> devices = new HashSet<>();
 
     @ManyToOne
     private Address address;
+
+    @OneToMany(mappedBy = "home")
+    private Set<HomeMember> members = new HashSet<>();
 }
