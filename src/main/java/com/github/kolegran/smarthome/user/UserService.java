@@ -23,6 +23,7 @@ public class UserService {
     @Transactional
     public UserDto create(CreateUserCommand command) {
         User user = new User();
+
         return new UserDto(userRepository.save(user));
     }
 

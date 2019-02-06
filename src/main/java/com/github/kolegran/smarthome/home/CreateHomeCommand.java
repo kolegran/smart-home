@@ -8,4 +8,6 @@ import javax.validation.constraints.NotNull;
 public class CreateHomeCommand {
     @NotNull
     private Long addressId;
+    @NotNull
+    private Long ownerId;
 }

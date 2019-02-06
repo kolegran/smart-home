@@ -16,7 +16,7 @@ public class HomeController {
     private HomeService homeService;
 
     @GetMapping("/api/homes")
-    public ResponseEntity<List<HomeDto>> getAllHomes() {
+    public ResponseEntity<List<HomeSimpleDto>> getAllHomes() {
         return ResponseEntity.ok(homeService.getAll());
     }
 
