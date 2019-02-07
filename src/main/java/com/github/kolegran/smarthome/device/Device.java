@@ -21,8 +21,10 @@ public class Device {
 
     @OneToMany(mappedBy = "device")
     private List<DeviceData> deviceDataList = new ArrayList<>();
+
     @ManyToOne
     private Room room;
+
     @ManyToOne(optional = false)
     private Home home;
 }

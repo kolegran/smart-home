@@ -15,10 +15,11 @@ public class CityService {
     private final CountryRepository countryRepository;
 
     @Transactional(readOnly = true)
-    public List<CityDto> getAll() {
+    public List<CitySimpleDto> getAllByCountryId(Long countryId) {
         return cityRepository.findAll()
                 .stream()
-                .map(CityDto::new)
+                .filter(c -> c.getCountry().getId().equals(countryId))
+                .map(CitySimpleDto::new)
                 .collect(Collectors.toList());
     }
 
@@ -30,12 +31,15 @@ public class CityService {
         return new CityDto(cityRepository.save(city));
     }
 
-    @Transactional(readOnly = true)
-    public List<CitySimpleDto> getAllByCountryId(long countryId) {
-        return cityRepository.findAll()
-                .stream()
-                .filter(c -> c.getCountry().getId().equals(countryId))
-                .map(CitySimpleDto::new)
-                .collect(Collectors.toList());
+    @Transactional
+    public CityDto updateById(Long cityId) {
+        City updateCity = cityRepository.getOne(cityId);
+        // updating...
+        return new CityDto(cityRepository.save(updateCity));
+    }
+
+    @Transactional
+    public void deleteById(Long cityId) {
+        cityRepository.deleteById(cityId);
     }
 }

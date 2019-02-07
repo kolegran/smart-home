@@ -20,15 +20,26 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
-    public UserDto create(CreateUserCommand command) {
-        User user = new User();
-
-        return new UserDto(userRepository.save(user));
-    }
-
     @Transactional(readOnly = true)
     public UserDto getById(Long userId) {
         return new UserDto(userRepository.getOne(userId));
+    }
+
+    @Transactional
+    public UserDto create(CreateUserCommand command) {
+        User user = new User();
+        return new UserDto(userRepository.save(user));
+    }
+
+    @Transactional
+    public UserDto updateById(Long userId) {
+        User updateUser = userRepository.getOne(userId);
+        // updating...
+        return new UserDto(userRepository.save(updateUser));
+    }
+
+    @Transactional
+    public void deleteById(Long userId) {
+        userRepository.deleteById(userId);
     }
 }

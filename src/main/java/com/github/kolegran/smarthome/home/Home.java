@@ -4,7 +4,6 @@ import com.github.kolegran.smarthome.address.Address;
 import com.github.kolegran.smarthome.device.Device;
 import com.github.kolegran.smarthome.home.member.HomeMember;
 import com.github.kolegran.smarthome.home.room.Room;
-import com.github.kolegran.smarthome.user.User;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

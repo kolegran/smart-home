@@ -2,10 +2,7 @@ package com.github.kolegran.smarthome.address;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,5 +20,16 @@ public class AddressController {
     @PostMapping("/api/addresses")
     public ResponseEntity<AddressDto> createAddress(@RequestBody @Valid CreateAddressCommand command) {
         return ResponseEntity.ok(addressService.create(command));
+    }
+
+    @PutMapping("/api/addresses/{addressId}")
+    public ResponseEntity<AddressDto> updateAddressById(@PathVariable Long addressId) {
+        return ResponseEntity.ok(addressService.updateById(addressId));
+    }
+
+    @DeleteMapping("/api/addresses/{addressId}")
+    public ResponseEntity<Void> deleteAddressById(@PathVariable Long addressId) {
+        addressService.deleteById(addressId);
+        return ResponseEntity.ok().build();
     }
 }

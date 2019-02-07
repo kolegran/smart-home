@@ -14,6 +14,15 @@ public class RoomService {
     private final RoomRepository roomRepository;
     private final HomeRepository homeRepository;
 
+    @Transactional(readOnly = true)
+    public List<RoomSimpleDto> getAllByHomeId(Long roomId) {
+        return roomRepository.findAll()
+                .stream()
+                .filter(c -> c.getHome().getId().equals(roomId))
+                .map(RoomSimpleDto::new)
+                .collect(Collectors.toList());
+    }
+
     @Transactional
     public RoomDto create(CreateRoomCommand command, Long roomId) {
         Room room = new Room();
@@ -23,12 +32,15 @@ public class RoomService {
         return new RoomDto(roomRepository.save(room));
     }
 
-    @Transactional(readOnly = true)
-    public List<RoomSimpleDto> getAllByHomeId(long roomId) {
-        return roomRepository.findAll()
-                .stream()
-                .filter(c -> c.getHome().getId().equals(roomId))
-                .map(RoomSimpleDto::new)
-                .collect(Collectors.toList());
+    @Transactional
+    public RoomDto updateById(Long roomId) {
+        Room updateRoom = roomRepository.getOne(roomId);
+        // updating...
+        return new RoomDto(roomRepository.save(updateRoom));
+    }
+
+    @Transactional
+    public void deleteById(Long roomId) {
+        roomRepository.deleteById(roomId);
     }
 }

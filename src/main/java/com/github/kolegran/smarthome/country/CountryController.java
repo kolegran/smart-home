@@ -27,4 +27,15 @@ public class CountryController {
         return ResponseEntity.ok(countryService.create(command));
     }
 
+    @PutMapping("/api/countries/{countryId}")
+    public ResponseEntity<CountryDto> updateCountryById(@PathVariable Long countryId) {
+        return ResponseEntity.ok(countryService.updateById(countryId));
+    }
+
+    @DeleteMapping("/api/countries/{countryId}")
+    public ResponseEntity<Void> deleteCountryById(@PathVariable Long countryId) {
+        countryService.deleteById(countryId);
+        return ResponseEntity.ok().build();
+    }
+
 }

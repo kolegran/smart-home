@@ -1,6 +1,5 @@
 package com.github.kolegran.smarthome.country;
 
-import com.github.kolegran.smarthome.country.city.CitySimpleDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +20,11 @@ public class CountryService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public CountryDto getById(Long countryId) {
+        return new CountryDto(countryRepository.getOne(countryId));
+    }
+
     @Transactional
     public CountryDto create(CreateCountryCommand command) {
         Country country = new Country();
@@ -28,8 +32,16 @@ public class CountryService {
         return new CountryDto(countryRepository.save(country));
     }
 
-    @Transactional(readOnly = true)
-    public CountryDto getById(Long countryId) {
-        return new CountryDto(countryRepository.getOne(countryId));
+    @Transactional
+    public CountryDto updateById(Long countryId) {
+        Country updateCountry = countryRepository.getOne(countryId);
+        // updating...
+        return new CountryDto(countryRepository.save(updateCountry));
     }
+
+    @Transactional
+    public void deleteById(Long countryId) {
+        countryRepository.deleteById(countryId);
+    }
+
 }

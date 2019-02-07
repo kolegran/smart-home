@@ -1,7 +1,6 @@
 package com.github.kolegran.smarthome.home;
 
 import com.github.kolegran.smarthome.address.AddressRepository;
-import com.github.kolegran.smarthome.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
 public class HomeService {
     private final HomeRepository homeRepository;
     private final AddressRepository addressRepository;
-    private final UserRepository userRepository;
 
     @Transactional(readOnly = true)
     public List<HomeSimpleDto> getAll() {
@@ -24,11 +22,27 @@ public class HomeService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public HomeDto getById(Long homeId) {
+        return new HomeDto(homeRepository.getOne(homeId));
+    }
+
     @Transactional
     public HomeDto create(CreateHomeCommand command) {
         Home home = new Home();
-        home.setOwner(userRepository.getOne(command.getOwnerId()));
         home.setAddress(addressRepository.getOne(command.getAddressId()));
         return new HomeDto(homeRepository.save(home));
+    }
+
+    @Transactional
+    public HomeDto updateById(Long homeId) {
+        Home updateHome = homeRepository.getOne(homeId);
+        // updating...
+        return new HomeDto(homeRepository.save(updateHome));
+    }
+
+    @Transactional
+    public void deleteById(Long homeId) {
+        homeRepository.deleteById(homeId);
     }
 }

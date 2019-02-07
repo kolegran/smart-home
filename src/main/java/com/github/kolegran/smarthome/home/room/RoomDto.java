@@ -7,6 +7,7 @@ public class RoomDto extends RoomSimpleDto {
 
     public RoomDto(Room room) {
         super(room);
+
         home = new HomeSimpleDto(room.getHome());
     }
 }

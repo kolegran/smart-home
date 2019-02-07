@@ -1,6 +1,7 @@
 package com.github.kolegran.smarthome.user;
 
 import com.github.kolegran.smarthome.home.HomeSimpleDto;
+import com.github.kolegran.smarthome.home.member.HomeMember;
 import lombok.Getter;
 
 import java.util.Set;
@@ -13,7 +14,8 @@ public class UserDto extends UserSimpleDto {
     public UserDto(User user) {
         super(user);
 
-        homes = user.getHomes().stream()
+        homes = user.getHomeMembers().stream()
+                .map(HomeMember::getHome)
                 .map(HomeSimpleDto::new)
                 .collect(Collectors.toSet());
     }

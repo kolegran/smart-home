@@ -30,4 +30,16 @@ public class AddressService {
         address.setCity(cityRepository.getOne(command.getCityId()));
         return new AddressDto(addressRepository.save(address));
     }
+
+    @Transactional
+    public AddressDto updateById(Long addressId) {
+        Address updateAddress = addressRepository.getOne(addressId);
+        // updating...
+        return new AddressDto(addressRepository.save(updateAddress));
+    }
+
+    @Transactional
+    public void deleteById(Long addressId) {
+        addressRepository.deleteById(addressId);
+    }
 }

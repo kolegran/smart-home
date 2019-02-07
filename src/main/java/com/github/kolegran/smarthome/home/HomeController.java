@@ -2,10 +2,7 @@ package com.github.kolegran.smarthome.home;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,8 +17,24 @@ public class HomeController {
         return ResponseEntity.ok(homeService.getAll());
     }
 
+    @GetMapping("/api/homes/{homeId}")
+    public ResponseEntity<HomeDto> getHomeById(@PathVariable Long homeId) {
+        return ResponseEntity.ok(homeService.getById(homeId));
+    }
+
     @PostMapping("/api/homes")
     public ResponseEntity<HomeDto> createHome(@RequestBody @Valid CreateHomeCommand command) {
         return ResponseEntity.ok(homeService.create(command));
+    }
+
+    @PutMapping("/api/homes/{homeId}")
+    public ResponseEntity<HomeDto> updateHomeById(@PathVariable Long homeId) {
+        return ResponseEntity.ok(homeService.updateById(homeId));
+    }
+
+    @DeleteMapping("/api/homes/{homeId}")
+    public ResponseEntity<Void> deleteHomeById(@PathVariable Long homeId) {
+        homeService.deleteById(homeId);
+        return ResponseEntity.ok().build();
     }
 }

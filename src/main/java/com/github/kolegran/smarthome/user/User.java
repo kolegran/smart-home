@@ -1,6 +1,5 @@
 package com.github.kolegran.smarthome.user;
 
-import com.github.kolegran.smarthome.home.Home;
 import com.github.kolegran.smarthome.home.member.HomeMember;
 import lombok.Getter;
 import lombok.Setter;

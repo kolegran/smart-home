@@ -22,4 +22,15 @@ public class CityController {
                                               @RequestBody @Valid CreateCityCommand command) {
         return ResponseEntity.ok(cityService.create(command, countryId));
     }
+
+    @PutMapping("/api/countries/{countryId}/cities/{cityId}")
+    public ResponseEntity<CityDto> updateCityById(@PathVariable Long cityId) {
+        return ResponseEntity.ok(cityService.updateById(cityId));
+    }
+
+    @DeleteMapping("/api/countries/{countryId}/cities/{cityId}")
+    public ResponseEntity<Void> deleteCityById(@PathVariable Long cityId) {
+        cityService.deleteById(cityId);
+        return ResponseEntity.ok().build();
+    }
 }

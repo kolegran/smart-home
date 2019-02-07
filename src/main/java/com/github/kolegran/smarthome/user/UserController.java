@@ -26,4 +26,15 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody @Valid CreateUserCommand command) {
         return ResponseEntity.ok(userService.create(command));
     }
+
+    @PutMapping("/api/users/{userId}")
+    public ResponseEntity<UserDto> updateUserById(@PathVariable Long userId) {
+        return ResponseEntity.ok(userService.updateById(userId));
+    }
+
+    @DeleteMapping("/api/users/{userId}")
+    public ResponseEntity<Void> deleteUserById(@PathVariable Long userId) {
+        userService.deleteById(userId);
+        return ResponseEntity.ok().build();
+    }
 }
