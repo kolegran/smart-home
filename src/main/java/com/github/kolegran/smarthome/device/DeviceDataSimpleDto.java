@@ -1,7 +1,10 @@
 package com.github.kolegran.smarthome.device;
 
+import lombok.Getter;
+
 import java.sql.Timestamp;
 
+@Getter
 public class DeviceDataSimpleDto {
     private final Long id;
     private final Timestamp createdAt;

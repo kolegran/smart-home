@@ -18,13 +18,13 @@ public class AddressController {
     }
 
     @PostMapping("/api/addresses")
-    public ResponseEntity<AddressDto> createAddress(@RequestBody @Valid CreateAddressCommand command) {
+    public ResponseEntity<AddressDto> createAddress(@RequestBody @Valid CreateUpdateAddressCommand command) {
         return ResponseEntity.ok(addressService.create(command));
     }
 
     @PutMapping("/api/addresses/{addressId}")
-    public ResponseEntity<AddressDto> updateAddressById(@PathVariable Long addressId) {
-        return ResponseEntity.ok(addressService.updateById(addressId));
+    public ResponseEntity<AddressDto> updateAddressById(@PathVariable Long addressId, @RequestBody @Valid CreateUpdateAddressCommand command) {
+        return ResponseEntity.ok(addressService.updateById(addressId, command));
     }
 
     @DeleteMapping("/api/addresses/{addressId}")

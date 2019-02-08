@@ -1,6 +1,7 @@
 package com.github.kolegran.smarthome.home;
 
 import com.github.kolegran.smarthome.address.AddressDto;
+import com.github.kolegran.smarthome.device.DeviceSimpleDto;
 import com.github.kolegran.smarthome.home.room.RoomSimpleDto;
 import lombok.Getter;
 
@@ -11,8 +12,8 @@ import java.util.stream.Collectors;
 public class HomeDto extends HomeSimpleDto {
     private final AddressDto address;
     private final Set<RoomSimpleDto> rooms;
+    private final Set<DeviceSimpleDto> devices;
     // members
-    // devices
 
     public HomeDto(Home home) {
         super(home);
@@ -21,6 +22,10 @@ public class HomeDto extends HomeSimpleDto {
 
         rooms = home.getRooms().stream()
                 .map(RoomSimpleDto::new)
+                .collect(Collectors.toSet());
+
+        devices = home.getDevices().stream()
+                .map(DeviceSimpleDto::new)
                 .collect(Collectors.toSet());
     }
 }

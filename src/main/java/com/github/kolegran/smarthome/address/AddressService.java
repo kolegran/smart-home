@@ -23,7 +23,7 @@ public class AddressService {
     }
 
     @Transactional
-    public AddressDto create(CreateAddressCommand command) {
+    public AddressDto create(CreateUpdateAddressCommand command) {
         Address address = new Address();
         address.setLine1(command.getLine1());
         address.setLine2(command.getLine2());
@@ -32,9 +32,11 @@ public class AddressService {
     }
 
     @Transactional
-    public AddressDto updateById(Long addressId) {
+    public AddressDto updateById(Long addressId, CreateUpdateAddressCommand command) {
         Address updateAddress = addressRepository.getOne(addressId);
-        // updating...
+        updateAddress.setLine1(command.getLine1());
+        updateAddress.setLine2(command.getLine2());
+        updateAddress.setCity(cityRepository.getOne(command.getCityId()));
         return new AddressDto(addressRepository.save(updateAddress));
     }
 

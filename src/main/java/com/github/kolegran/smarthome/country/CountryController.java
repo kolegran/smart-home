@@ -23,13 +23,13 @@ public class CountryController {
     }
 
     @PostMapping("/api/countries")
-    public ResponseEntity<CountryDto> createCountry(@RequestBody @Valid CreateCountryCommand command) {
+    public ResponseEntity<CountryDto> createCountry(@RequestBody @Valid CreateUpdateCountryCommand command) {
         return ResponseEntity.ok(countryService.create(command));
     }
 
     @PutMapping("/api/countries/{countryId}")
-    public ResponseEntity<CountryDto> updateCountryById(@PathVariable Long countryId) {
-        return ResponseEntity.ok(countryService.updateById(countryId));
+    public ResponseEntity<CountryDto> updateCountryById(@PathVariable Long countryId, @RequestBody @Valid CreateUpdateCountryCommand command) {
+        return ResponseEntity.ok(countryService.updateById(countryId, command));
     }
 
     @DeleteMapping("/api/countries/{countryId}")

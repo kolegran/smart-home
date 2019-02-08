@@ -23,13 +23,13 @@ public class HomeController {
     }
 
     @PostMapping("/api/homes")
-    public ResponseEntity<HomeDto> createHome(@RequestBody @Valid CreateHomeCommand command) {
+    public ResponseEntity<HomeDto> createHome(@RequestBody @Valid CreateUpdateHomeCommand command) {
         return ResponseEntity.ok(homeService.create(command));
     }
 
     @PutMapping("/api/homes/{homeId}")
-    public ResponseEntity<HomeDto> updateHomeById(@PathVariable Long homeId) {
-        return ResponseEntity.ok(homeService.updateById(homeId));
+    public ResponseEntity<HomeDto> updateHomeById(@PathVariable Long homeId, @RequestBody @Valid CreateUpdateHomeCommand command) {
+        return ResponseEntity.ok(homeService.updateById(homeId, command));
     }
 
     @DeleteMapping("/api/homes/{homeId}")

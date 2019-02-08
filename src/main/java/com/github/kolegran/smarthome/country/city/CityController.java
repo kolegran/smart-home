@@ -19,13 +19,15 @@ public class CityController {
 
     @PostMapping("/api/countries/{countryId}/cities")
     public ResponseEntity<CityDto> createCity(@PathVariable Long countryId,
-                                              @RequestBody @Valid CreateCityCommand command) {
+                                              @RequestBody @Valid CreateUpdateCityCommand command) {
         return ResponseEntity.ok(cityService.create(command, countryId));
     }
 
     @PutMapping("/api/countries/{countryId}/cities/{cityId}")
-    public ResponseEntity<CityDto> updateCityById(@PathVariable Long cityId) {
-        return ResponseEntity.ok(cityService.updateById(cityId));
+    public ResponseEntity<CityDto> updateCityById(@PathVariable Long cityId,
+                                                  @RequestBody @Valid CreateUpdateCityCommand command,
+                                                  @PathVariable Long countryId) {
+        return ResponseEntity.ok(cityService.updateById(cityId, command, countryId));
     }
 
     @DeleteMapping("/api/countries/{countryId}/cities/{cityId}")

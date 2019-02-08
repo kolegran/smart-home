@@ -2,8 +2,6 @@ package com.github.kolegran.smarthome.device;
 
 import lombok.Getter;
 
-import java.sql.Timestamp;
-
 @Getter
 public class DeviceDataDto extends DeviceDataSimpleDto{
     private final DeviceSimpleDto device;

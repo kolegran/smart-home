@@ -1,5 +1,8 @@
 package com.github.kolegran.smarthome.home;
 
+import lombok.Getter;
+
+@Getter
 public class HomeSimpleDto {
     private final Long id;
 

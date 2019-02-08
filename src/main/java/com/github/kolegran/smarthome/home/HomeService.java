@@ -28,16 +28,16 @@ public class HomeService {
     }
 
     @Transactional
-    public HomeDto create(CreateHomeCommand command) {
+    public HomeDto create(CreateUpdateHomeCommand command) {
         Home home = new Home();
         home.setAddress(addressRepository.getOne(command.getAddressId()));
         return new HomeDto(homeRepository.save(home));
     }
 
     @Transactional
-    public HomeDto updateById(Long homeId) {
+    public HomeDto updateById(Long homeId, CreateUpdateHomeCommand command) {
         Home updateHome = homeRepository.getOne(homeId);
-        // updating...
+        updateHome.setAddress(addressRepository.getOne(command.getAddressId()));
         return new HomeDto(homeRepository.save(updateHome));
     }
 

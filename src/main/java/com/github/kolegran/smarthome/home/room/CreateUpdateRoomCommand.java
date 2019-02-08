@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class CreateRoomCommand {
+public class CreateUpdateRoomCommand {
     @NotNull
     @Length(min = 2, max = 50)
     private String name;

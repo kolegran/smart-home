@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class CreateAddressCommand {
+public class CreateUpdateAddressCommand {
     @NotNull
     @Length(min = 2, max = 50)
     private String line1;

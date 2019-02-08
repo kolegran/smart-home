@@ -19,13 +19,15 @@ public class RoomController {
 
     @PostMapping("/api/homes/{homeId}/rooms")
     public ResponseEntity<RoomDto> createRoom(@PathVariable Long homeId,
-                                              @RequestBody @Valid CreateRoomCommand command) {
+                                              @RequestBody @Valid CreateUpdateRoomCommand command) {
         return ResponseEntity.ok(roomService.create(command, homeId));
     }
 
     @PutMapping("/api/homes/{homeId}/rooms/{roomId}")
-    public ResponseEntity<RoomDto> updateRoomById(@PathVariable Long roomId) {
-        return ResponseEntity.ok(roomService.updateById(roomId));
+    public ResponseEntity<RoomDto> updateRoomById(@PathVariable Long roomId,
+                                                  @RequestBody @Valid CreateUpdateRoomCommand command,
+                                                  @PathVariable Long homeId) {
+        return ResponseEntity.ok(roomService.updateById(roomId, command, homeId));
     }
 
     @DeleteMapping("/api/homes/{homeId}/rooms/{roomId}")
