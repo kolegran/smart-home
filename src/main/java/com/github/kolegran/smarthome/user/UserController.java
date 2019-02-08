@@ -23,13 +23,13 @@ public class UserController {
     }
 
     @PostMapping("/api/users")
-    public ResponseEntity<UserDto> createUser(@RequestBody @Valid CreateUserCommand command) {
+    public ResponseEntity<UserDto> createUser(@RequestBody @Valid CreateUpdateUserCommand command) {
         return ResponseEntity.ok(userService.create(command));
     }
 
     @PutMapping("/api/users/{userId}")
-    public ResponseEntity<UserDto> updateUserById(@PathVariable Long userId) {
-        return ResponseEntity.ok(userService.updateById(userId));
+    public ResponseEntity<UserDto> updateUserById(@PathVariable Long userId, @RequestBody @Valid CreateUpdateUserCommand command) {
+        return ResponseEntity.ok(userService.updateById(userId, command));
     }
 
     @DeleteMapping("/api/users/{userId}")

@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class CreateUserCommand {
+public class CreateUpdateUserCommand {
     @NotNull
     @Length(min = 2, max = 20)
     private String login;

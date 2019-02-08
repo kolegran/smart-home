@@ -26,15 +26,22 @@ public class UserService {
     }
 
     @Transactional
-    public UserDto create(CreateUserCommand command) {
+    public UserDto create(CreateUpdateUserCommand command) {
         User user = new User();
+
+        user.setLogin(command.getLogin());
+        user.setPassword(command.getPassword());
+        user.setEmail(command.getEmail());
         return new UserDto(userRepository.save(user));
     }
 
     @Transactional
-    public UserDto updateById(Long userId) {
+    public UserDto updateById(Long userId, CreateUpdateUserCommand command) {
         User updateUser = userRepository.getOne(userId);
-        // updating...
+
+        updateUser.setLogin(command.getLogin());
+        updateUser.setPassword(command.getPassword());
+        updateUser.setEmail(command.getEmail());
         return new UserDto(userRepository.save(updateUser));
     }
 
