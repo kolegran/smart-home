@@ -21,6 +21,10 @@ public class User {
     @GeneratedValue
     private Long id;
 
+    private String login;
+    private String password;
+    private String email;
+
     @OneToMany(mappedBy = "user")
     private Set<HomeMember> homeMembers = new HashSet<>();
 }
