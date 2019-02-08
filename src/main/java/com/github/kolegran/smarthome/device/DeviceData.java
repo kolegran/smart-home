@@ -18,9 +18,11 @@ public class DeviceData {
 
     @ManyToOne(optional = false)
     private Device device;
+
     private Timestamp createdAt;
 
     @Enumerated(EnumType.STRING)
     private MeasurementType type;
+
     private Double value;
 }

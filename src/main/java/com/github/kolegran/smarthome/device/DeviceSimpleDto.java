@@ -5,8 +5,10 @@ import lombok.Getter;
 @Getter
 public class DeviceSimpleDto {
     private final Long id;
+    private final String name;
 
     public DeviceSimpleDto(Device device) {
         id = device.getId();
+        name = device.getName();
     }
 }

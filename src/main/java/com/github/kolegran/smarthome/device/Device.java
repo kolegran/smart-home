@@ -19,6 +19,8 @@ public class Device {
     @GeneratedValue
     private Long id;
 
+    private String name;
+
     @OneToMany(mappedBy = "device")
     private List<DeviceData> deviceDataList = new ArrayList<>();
 
