@@ -10,9 +10,11 @@ public class CreateUpdateUserCommand {
     @NotNull
     @Length(min = 2, max = 20)
     private String login;
+
     @NotNull
     @Length(min = 6, max = 40)
     private String password;
+
     @NotNull
     @Length(min = 10, max = 50)
     private String email;
