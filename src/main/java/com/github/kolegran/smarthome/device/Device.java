@@ -1,5 +1,6 @@
 package com.github.kolegran.smarthome.device;
 
+import com.github.kolegran.smarthome.device.data.DeviceData;
 import com.github.kolegran.smarthome.home.Home;
 import com.github.kolegran.smarthome.home.room.Room;
 import lombok.Getter;

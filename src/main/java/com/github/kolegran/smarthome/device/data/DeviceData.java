@@ -1,5 +1,6 @@
-package com.github.kolegran.smarthome.device;
+package com.github.kolegran.smarthome.device.data;
 
+import com.github.kolegran.smarthome.device.Device;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

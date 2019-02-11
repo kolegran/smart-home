@@ -1,5 +1,6 @@
-package com.github.kolegran.smarthome.device;
+package com.github.kolegran.smarthome.device.data;
 
+import com.github.kolegran.smarthome.device.data.DeviceData;
 import lombok.Getter;
 
 import java.sql.Timestamp;

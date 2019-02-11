@@ -1,9 +1,10 @@
-package com.github.kolegran.smarthome.device;
+package com.github.kolegran.smarthome.device.data;
 
+import com.github.kolegran.smarthome.device.DeviceSimpleDto;
 import lombok.Getter;
 
 @Getter
-public class DeviceDataDto extends DeviceDataSimpleDto{
+public class DeviceDataDto extends DeviceDataSimpleDto {
     private final DeviceSimpleDto device;
     private final MeasurementType[] measurementType;
 

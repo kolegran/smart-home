@@ -1,4 +1,4 @@
-package com.github.kolegran.smarthome.device;
+package com.github.kolegran.smarthome.device.data;
 
 public enum MeasurementType {
     LIGHT_LUXES,
