@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class HomeController {
-    private HomeService homeService;
+    private final HomeService homeService;
 
     @GetMapping("/api/homes")
     public ResponseEntity<List<HomeSimpleDto>> getAllHomes() {
