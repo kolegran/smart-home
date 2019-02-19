@@ -2,11 +2,11 @@ package com.github.kolegran.smarthome.home;
 
 import com.github.kolegran.smarthome.address.AddressRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.data.domain.Pageable;
 
 @Service
 @RequiredArgsConstructor
@@ -15,11 +15,9 @@ public class HomeService {
     private final AddressRepository addressRepository;
 
     @Transactional(readOnly = true)
-    public List<HomeSimpleDto> getAll() {
-        return homeRepository.findAll()
-                .stream()
-                .map(HomeSimpleDto::new)
-                .collect(Collectors.toList());
+    public Page<HomeDto> getAll(Pageable pageable) {
+        pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize());
+        return homeRepository.findAll(pageable).map(HomeDto::new);
     }
 
     @Transactional(readOnly = true)

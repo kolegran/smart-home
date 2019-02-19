@@ -1,11 +1,12 @@
 package com.github.kolegran.smarthome.home;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,8 +14,8 @@ public class HomeController {
     private final HomeService homeService;
 
     @GetMapping("/api/homes")
-    public ResponseEntity<List<HomeSimpleDto>> getAllHomes() {
-        return ResponseEntity.ok(homeService.getAll());
+    public ResponseEntity<Page<HomeDto>> getAllHomes(Pageable pageable) {
+        return ResponseEntity.ok(homeService.getAll(pageable));
     }
 
     @GetMapping("/api/homes/{homeId}")

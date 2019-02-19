@@ -10,4 +10,10 @@ public class CreateUpdateDeviceCommand {
     @NotNull
     @Length(min = 2, max = 100)
     private String name;
+
+    @NotNull
+    private Long roomId;
+
+    @NotNull
+    private Long homeId;
 }

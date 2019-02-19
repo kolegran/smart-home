@@ -9,6 +9,7 @@ public class CityDto extends CitySimpleDto {
 
     public CityDto(City city) {
         super(city);
+
         country = new CountrySimpleDto(city.getCountry());
     }
 }
