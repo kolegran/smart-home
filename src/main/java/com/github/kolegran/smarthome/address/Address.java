@@ -19,10 +19,13 @@ public class Address {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String line1;
+
+    @Column(nullable = false)
     private String line2;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private City city;
 
     @OneToMany(mappedBy = "address")

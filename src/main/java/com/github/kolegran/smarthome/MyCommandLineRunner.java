@@ -37,6 +37,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
         CreateUpdateAddressCommand addressCommand = new CreateUpdateAddressCommand();
         addressCommand.setCityId(cherkassy.getId());
         addressCommand.setLine1("Lviv Shevchenka 23");
+        addressCommand.setLine2("13");
         AddressDto shevchenka = addressService.create(addressCommand);
 
         CreateUpdateHomeCommand cmd = new CreateUpdateHomeCommand();

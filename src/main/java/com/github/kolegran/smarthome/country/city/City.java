@@ -22,6 +22,7 @@ public class City {
     @ManyToOne
     private Country country;
 
+    @Column(nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "city")

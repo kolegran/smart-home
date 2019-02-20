@@ -20,12 +20,13 @@ public class Device {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "device")
     private List<DeviceData> deviceDataList = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Room room;
 
     @ManyToOne(optional = false)

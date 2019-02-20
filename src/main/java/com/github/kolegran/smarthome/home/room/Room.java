@@ -19,10 +19,13 @@ public class Room {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private int floor;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Home home;
 
     @OneToMany(mappedBy = "room")

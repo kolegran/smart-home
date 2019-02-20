@@ -27,7 +27,7 @@ public class Home {
     @OneToMany(mappedBy = "home")
     private Set<Device> devices = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Address address;
 
     @OneToMany(mappedBy = "home")

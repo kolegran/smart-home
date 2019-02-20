@@ -20,10 +20,12 @@ public class DeviceData {
     @ManyToOne(optional = false)
     private Device device;
 
+    @Column(nullable = false)
     private Timestamp createdAt;
 
     @Enumerated(EnumType.STRING)
     private MeasurementType type;
 
+    @Column(nullable = false)
     private Double value;
 }
