@@ -26,7 +26,7 @@ public class CityService {
     @Transactional
     public CityDto create(CreateUpdateCityCommand command, Long countryId) {
         City city = new City();
-        city.setTitle(command.getName());
+        city.setTitle(command.getTitle());
         city.setCountry(countryRepository.getOne(countryId));
         return new CityDto(cityRepository.save(city));
     }
@@ -34,7 +34,7 @@ public class CityService {
     @Transactional
     public CityDto updateById(Long cityId, CreateUpdateCityCommand command, Long countryId) {
         City updateCity = cityRepository.getOne(cityId);
-        updateCity.setTitle(command.getName());
+        updateCity.setTitle(command.getTitle());
         updateCity.setCountry(countryRepository.getOne(countryId));
         return new CityDto(cityRepository.save(updateCity));
     }
