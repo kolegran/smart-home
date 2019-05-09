@@ -15,7 +15,7 @@ public class AddressService {
     private final CityRepository cityRepository;
 
     @Transactional(readOnly = true)
-    public List<AddressDto> getAll() {
+    public List<AddressSimpleDto> getAll() {
         return addressRepository.findAll()
                 .stream()
                 .map(AddressDto::new)

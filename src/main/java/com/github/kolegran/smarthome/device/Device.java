@@ -21,7 +21,7 @@ public class Device {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @OneToMany(mappedBy = "device")
     private List<DeviceData> deviceDataList = new ArrayList<>();

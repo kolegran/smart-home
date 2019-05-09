@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class CreateUpdateDeviceCommand {
     @NotNull
     @Length(min = 2, max = 100)
-    private String name;
+    private String title;
 
     @NotNull
     private Long roomId;

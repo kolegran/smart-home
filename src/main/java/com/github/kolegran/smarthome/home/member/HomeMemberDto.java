@@ -15,8 +15,8 @@ public class HomeMemberDto extends HomeMemberSimpleDto{
     public HomeMemberDto(HomeMember homeMember) {
         super(homeMember);
 
-        home = new HomeSimpleDto(homeMember.getHome());
-        user = new UserSimpleDto(homeMember.getUser());
-        role = HomeMemberRole.values();
+        this.home = new HomeSimpleDto(homeMember.getHome());
+        this.user = new UserSimpleDto(homeMember.getUser());
+        this.role = HomeMemberRole.values();
     }
 }

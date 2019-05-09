@@ -11,8 +11,8 @@ public class DeviceDataDto extends DeviceDataSimpleDto {
     public DeviceDataDto(DeviceData deviceData) {
         super(deviceData);
 
-        device = new DeviceSimpleDto(deviceData.getDevice());
+        this.device = new DeviceSimpleDto(deviceData.getDevice());
 
-        measurementType = MeasurementType.values();
+        this.measurementType = MeasurementType.values();
     }
 }

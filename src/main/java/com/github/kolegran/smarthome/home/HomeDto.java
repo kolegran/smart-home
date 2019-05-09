@@ -19,17 +19,17 @@ public class HomeDto extends HomeSimpleDto {
     public HomeDto(Home home) {
         super(home);
 
-        address = new AddressDto(home.getAddress());
+        this.address = new AddressDto(home.getAddress());
 
-        rooms = home.getRooms().stream()
+        this.rooms = home.getRooms().stream()
                 .map(RoomSimpleDto::new)
                 .collect(Collectors.toSet());
 
-        devices = home.getDevices().stream()
+        this.devices = home.getDevices().stream()
                 .map(DeviceSimpleDto::new)
                 .collect(Collectors.toSet());
 
-        membersRoles = home.getMembers().stream()
+        this.membersRoles = home.getMembers().stream()
                 .map(HomeMemberSimpleDto::new)
                 .collect(Collectors.toSet());
     }

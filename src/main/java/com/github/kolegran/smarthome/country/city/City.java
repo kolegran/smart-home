@@ -23,7 +23,7 @@ public class City {
     private Country country;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @OneToMany(mappedBy = "city")
     private Set<Address> addresses = new HashSet<>();

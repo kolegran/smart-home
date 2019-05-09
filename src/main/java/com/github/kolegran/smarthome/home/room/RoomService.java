@@ -26,7 +26,7 @@ public class RoomService {
     @Transactional
     public RoomDto create(CreateUpdateRoomCommand command, Long homeId) {
         Room room = new Room();
-        room.setName(command.getName());
+        room.setTitle(command.getTitle());
         room.setFloor(command.getFloor());
         room.setHome(homeRepository.getOne(homeId));
         return new RoomDto(roomRepository.save(room));
@@ -35,7 +35,7 @@ public class RoomService {
     @Transactional
     public RoomDto updateById(Long roomId, CreateUpdateRoomCommand command, Long homeId) {
         Room updateRoom = roomRepository.getOne(roomId);
-        updateRoom.setName(command.getName());
+        updateRoom.setTitle(command.getTitle());
         updateRoom.setFloor(command.getFloor());
         updateRoom.setHome(homeRepository.getOne(homeId));
         return new RoomDto(roomRepository.save(updateRoom));

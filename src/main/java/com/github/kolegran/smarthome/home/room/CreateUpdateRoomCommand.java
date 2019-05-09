@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class CreateUpdateRoomCommand {
     @NotNull
     @Length(min = 2, max = 50)
-    private String name;
+    private String title;
 
     @NotNull
     private Integer floor;

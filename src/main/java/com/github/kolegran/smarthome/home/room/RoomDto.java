@@ -15,9 +15,9 @@ public class RoomDto extends RoomSimpleDto {
     public RoomDto(Room room) {
         super(room);
 
-        home = new HomeSimpleDto(room.getHome());
+        this.home = new HomeSimpleDto(room.getHome());
 
-        devices = room.getDevices().stream()
+        this.devices = room.getDevices().stream()
                 .map(DeviceSimpleDto::new)
                 .collect(Collectors.toSet());
     }

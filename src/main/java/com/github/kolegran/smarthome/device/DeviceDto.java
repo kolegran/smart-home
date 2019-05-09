@@ -17,10 +17,9 @@ public class DeviceDto extends DeviceSimpleDto {
     public DeviceDto(Device device) {
         super(device);
 
-        home = new HomeSimpleDto(device.getHome());
-        room = new RoomSimpleDto(device.getRoom());
-
-        data = device.getDeviceDataList().stream()
+        this.home = new HomeSimpleDto(device.getHome());
+        this.room = new RoomSimpleDto(device.getRoom());
+        this.data = device.getDeviceDataList().stream()
                 .map(DeviceDataSimpleDto::new)
                 .collect(Collectors.toSet());
     }

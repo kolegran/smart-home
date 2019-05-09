@@ -28,14 +28,14 @@ public class CountryService {
     @Transactional
     public CountryDto create(CreateUpdateCountryCommand command) {
         Country country = new Country();
-        country.setName(command.getName());
+        country.setTitle(command.getTitle());
         return new CountryDto(countryRepository.save(country));
     }
 
     @Transactional
     public CountryDto updateById(Long countryId, CreateUpdateCountryCommand command) {
         Country updateCountry = countryRepository.getOne(countryId);
-        updateCountry.setName(command.getName());
+        updateCountry.setTitle(command.getTitle());
         return new CountryDto(countryRepository.save(updateCountry));
     }
 

@@ -26,11 +26,11 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         CreateUpdateCountryCommand countryCommand = new CreateUpdateCountryCommand();
-        countryCommand.setName("Ukraine");
+        countryCommand.setTitle("Ukraine");
         CountryDto ukraine = countryService.create(countryCommand);
 
         CreateUpdateCityCommand command = new CreateUpdateCityCommand();
-        command.setName("Lviv");
+        command.setTitle("Lviv");
         CityDto cherkassy = cityService.create(command, ukraine.getId());
 
 

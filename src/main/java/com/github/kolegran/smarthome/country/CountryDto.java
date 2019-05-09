@@ -13,7 +13,7 @@ public class CountryDto extends CountrySimpleDto {
     public CountryDto(Country country) {
         super(country);
 
-        cities = country.getCities().stream()
+        this.cities = country.getCities().stream()
                 .map(CitySimpleDto::new)
                 .collect(Collectors.toSet());
     }

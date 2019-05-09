@@ -1,6 +1,5 @@
 package com.github.kolegran.smarthome.device.data;
 
-import com.github.kolegran.smarthome.device.data.DeviceData;
 import lombok.Getter;
 
 import java.sql.Timestamp;
@@ -12,8 +11,8 @@ public class DeviceDataSimpleDto {
     private final Double value;
 
     public DeviceDataSimpleDto(DeviceData deviceData) {
-        id = deviceData.getId();
-        createdAt = deviceData.getCreatedAt();
-        value = deviceData.getValue();
+        this.id = deviceData.getId();
+        this.createdAt = deviceData.getCreatedAt();
+        this.value = deviceData.getValue();
     }
 }

@@ -14,7 +14,7 @@ public class UserDto extends UserSimpleDto {
     public UserDto(User user) {
         super(user);
 
-        homes = user.getHomeMembers().stream()
+        this.homes = user.getHomeMembers().stream()
                 .map(HomeMember::getHome)
                 .map(HomeSimpleDto::new)
                 .collect(Collectors.toSet());

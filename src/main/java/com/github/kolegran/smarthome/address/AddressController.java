@@ -13,7 +13,7 @@ public class AddressController {
     private final AddressService addressService;
 
     @GetMapping("/api/addresses")
-    public ResponseEntity<List<AddressDto>> getAllAddresses() {
+    public ResponseEntity<List<AddressSimpleDto>> getAllAddresses() {
         return ResponseEntity.ok(addressService.getAll());
     }
 

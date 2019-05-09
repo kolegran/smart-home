@@ -5,10 +5,10 @@ import lombok.Getter;
 @Getter
 public class CountrySimpleDto {
     private final Long id;
-    private final String name;
+    private final String title;
 
     public CountrySimpleDto(Country country) {
-        id = country.getId();
-        name = country.getName();
+        this.id = country.getId();
+        this.title = country.getTitle();
     }
 }

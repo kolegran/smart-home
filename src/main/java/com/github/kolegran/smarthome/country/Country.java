@@ -19,7 +19,7 @@ public class Country {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @OneToMany(mappedBy = "country")
     private Set<City> cities = new HashSet<>();

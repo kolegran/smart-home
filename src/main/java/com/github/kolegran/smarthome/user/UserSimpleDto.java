@@ -9,8 +9,8 @@ public class UserSimpleDto {
     private final String email;
 
     public UserSimpleDto(User user) {
-        id = user.getId();
-        login = user.getLogin();
-        email = user.getEmail();
+        this.id = user.getId();
+        this.login = user.getLogin();
+        this.email = user.getEmail();
     }
 }

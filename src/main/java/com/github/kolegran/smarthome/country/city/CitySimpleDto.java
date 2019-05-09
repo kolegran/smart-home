@@ -5,10 +5,10 @@ import lombok.Getter;
 @Getter
 public class CitySimpleDto {
     private final Long id;
-    private final String name;
+    private final String title;
 
     public CitySimpleDto(City city) {
-        id = city.getId();
-        name = city.getName();
+        this.id = city.getId();
+        this.title = city.getTitle();
     }
 }
